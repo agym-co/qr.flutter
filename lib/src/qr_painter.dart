@@ -516,7 +516,8 @@ class _PaintMetrics {
   void _calculateMetrics() {
     final gapTotal = (moduleCount - 1) * gapSize;
     final pixelSize = (containerSize - gapTotal) / moduleCount;
-    _pixelSize = (pixelSize * 2).roundToDouble() / 2;
+    // Applied fix from @hhkkyy (https://github.com/theyakka/qr.flutter/issues/104#issuecomment-666163180).
+    _pixelSize = pixelSize;
     _innerContentSize = (_pixelSize * moduleCount) + gapTotal;
     _inset = (containerSize - _innerContentSize) / 2;
   }
